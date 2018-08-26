@@ -47,3 +47,26 @@
   height: 500px;
   overflow-y:scroll;
 }
+
+img {
+    border-radius: 50%;
+}
+        
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+        
+.navbar {
+    margin-bottom: -2px;
+}
+        
+.well {
+    height: 1080px;
+}
+        
+#fixedbutton {
+    position: fixed;
+    bottom: 0px;
+    right: 0px; 
+}
