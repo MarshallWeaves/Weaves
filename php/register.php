@@ -7,7 +7,7 @@
  */
  
 //importing required script
-require_once 'includes/DbOperation.php';
+require_once '/includes/DbOperation.php';
  
 $response = array();
  
