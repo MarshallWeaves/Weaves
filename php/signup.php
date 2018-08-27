@@ -8,23 +8,23 @@
         <div class="container">
             <div class="row">
                 <div class="span12">
-                    <form class="form-horizontal" action="db.php" method="POST">
+                    <form class="form-horizontal" action="register.php" method="POST">
                       <fieldset>
                         <div id="legend">
                           <legend class="">Sign Up</legend>
                         </div>
                         <div class="control-group">
                           <!-- Username -->
-                          <label class="control-label"  for="fname">First Name</label>
+                          <label class="control-label"  for="username">Username</label>
                           <div class="controls">
-                            <input type="text" id="fname" name="fname" placeholder="" class="input-xlarge">
+                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
                           </div>
                         </div>
                         <div class="control-group">
                           <!-- Password-->
-                          <label class="control-label" for="lname">Last Name</label>
+                          <label class="control-label" for="password">Password</label>
                           <div class="controls">
-                            <input type="text" id="lname" name="lname" placeholder="" class="input-xlarge">
+                            <input type="text" id="password" name="password" placeholder="" class="input-xlarge">
                           </div>
                         </div>
                         <div class="control-group">
@@ -36,9 +36,16 @@
                         </div>
                         <div class="control-group">
                           <!-- Username -->
-                          <label class="control-label"  for="password">Password</label>
+                          <label class="control-label"  for="name">Name</label>
                           <div class="controls">
-                            <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                            <input type="password" id="name" name="name" placeholder="" class="input-xlarge">
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <!-- Username -->
+                          <label class="control-label"  for="phone">Phone</label>
+                          <div class="controls">
+                            <input type="password" id="phone" name="phone" placeholder="" class="input-xlarge">
                           </div>
                         </div>
                         <div class="control-group">

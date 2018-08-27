@@ -8,16 +8,16 @@
         <div class="container">
             <div class="row">
                 <div class="span12">
-                    <form class="form-horizontal" action="php/db.php" method="POST">
+                    <form class="form-horizontal" action="php/login.php" method="POST">
                       <fieldset>
                         <div id="legend">
                           <legend class="">Login</legend>
                         </div>
                         <div class="control-group">
                           <!-- Username -->
-                          <label class="control-label"  for="email">Email</label>
+                          <label class="control-label"  for="username">Username</label>
                           <div class="controls">
-                            <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
                           </div>
                         </div>
                         <div class="control-group">

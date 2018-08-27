@@ -48,7 +48,7 @@
   overflow-y:scroll;
 }
 
-img {
+#profilepic {
     border-radius: 50%;
 }
         
@@ -68,5 +68,9 @@ p {
 #fixedbutton {
     position: fixed;
     bottom: 0px;
-    right: 0px; 
+    right: 10px; 
+}
+
+#navprofile {
+    padding-right: 15px;
 }

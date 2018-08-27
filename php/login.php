@@ -6,7 +6,7 @@
  * Time: 8:39 PM
  */
  
-require_once '/includes/DbOperation.php';
+require_once '../includes/DbOperation.php';
  
 $response = array();
  
@@ -19,6 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($db->userLogin($_POST['username'], $_POST['password'])) {
             $response['error'] = false;
             $response['user'] = $db->getUserByUsername($_POST['username']);
+          
+            setcookie("id", $response['user']['id']);
+            setcookie("username", $response['user']['username']);
+            setcookie("email", $response['user']['email']);
+            setcookie("phone", $response['user']['phone']);
+          
+            header("Location: home.php");
+            exit;
         } else {
             $response['error'] = true;
             $response['message'] = 'Invalid username or password';
