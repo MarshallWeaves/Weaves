@@ -9,55 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">-->
+    
 </head>
 
-<a href="#" class="myButton" id="fixedbutton">Chat</a>
+    <button class="trigger" id="fixedbutton">Chat</button>
     
 <style>
     
-.myButton {
-	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
-	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
-	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
-	background-color:#768d87;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	border:1px solid #566963;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:7px 62px;
-	text-decoration:none;
-	text-shadow:0px -1px 0px #2b665e;
-}
-.myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
-	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
-	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
-	background-color:#6c7c7c;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-    
-.container-chat{max-width:700px; margin:auto;}
+.container-chat{max-width:700px; margin-top: 110px;}
 img{ max-width:100%;}
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -149,7 +108,7 @@ img{ max-width:100%;}
   float: left;
   padding: 30px 15px 0 25px;
   width: 60%;
-    background-color: aliceblue;
+    background-color: #FFF;
 }
 
  .sent_msg p {
@@ -174,7 +133,7 @@ img{ max-width:100%;}
   width: 100%;
 }
 
-.type_msg {border-top: 1px solid #c4c4c4;position: relative; background-color: aliceblue;}
+.type_msg {border-top: 1px solid #c4c4c4;position: relative; background-color: #FFF;}
 .msg_send_btn {
   background: #05728f none repeat scroll 0 0;
   border: medium none;
@@ -194,7 +153,34 @@ img{ max-width:100%;}
   overflow-y: auto;
 }
     
+.trigger {
+    margin-right: 700px;
+}    
+
+.slider {
+  position: absolute;
+  width: 100vw;
+  height: 85vh;
+  top: 0;
+  overflow: hidden;
+  background-color: #FFF; color: #FFF;
+  transition: all 1s;
+}
+
+.slider.close {
+  top: 85vh;
+  height: 0;
+}
+    
 </style>
+    
+    <script>
+    $('.trigger, .slider').click(function() {
+        $('.slider').toggleClass('close');
+    });
+    </script>
+    
+    
 <body>
     
     
@@ -228,62 +214,12 @@ img{ max-width:100%;}
                 <center><img id="profilepic" src="/img/img_avatar.png" alt="Avatar" style="width:200px"></center>
                 <center><b><p style="font-size: 25px;">Evan Henry</p></b></center>
             </div>
-            <div class="col-sm-8 scroll-area">
-                <!-- Global Message table -->
-                <div class="global-message">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Hello. How are you today?</p>
-                  <span class="time-right">11:00</span>
-                </div>
-
-                <div class="global-message darker">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Hey! I'm fine. Thanks for asking!</p>
-                  <span class="time-right">11:01</span>
-                </div>
-
-                <div class="global-message">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Sweet! So, what do you wanna do today?</p>
-                  <span class="time-right">11:02</span>
-                </div>
-
-                <div class="global-message darker">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-                  <span class="time-right">11:05</span>
-                </div>
-
-                <div class="global-message">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Hello. How are you today?</p>
-                  <span class="time-right">11:00</span>
-                </div>
-
-                <div class="global-message">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Hello. How are you today?</p>
-                  <span class="time-right">11:00</span>
-                </div>
-
-                <div class="global-message">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Hello. How are you today?</p>
-                  <span class="time-right">11:00</span>
-                </div>
-
-                <div class="global-message">
-                  <img src="/img/img_avatar.png" alt="Avatar" style="width:100%;">
-                  <p>Hello. How are you today?</p>
-                  <span class="time-right">11:00</span>
-                </div>
+            <div class="col-sm-8">
             </div>
         </div>
     </div>
     
-    
-  <div class="container-chat" id="fixedbutton">
-    <h3 class=" text-center">Messaging</h3>
+  <div class="container-chat slider close" id="fixedbutton">
     <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people">

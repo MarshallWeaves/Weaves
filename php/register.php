@@ -1,69 +1,90 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Belal
- * Date: 04/02/17
- * Time: 7:51 PM
- */
- 
-//importing required script
-require_once '/includes/DbOperation.php';
- 
-$response = array();
- 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!verifyRequiredParams(array('username', 'password', 'email', 'name', 'phone'))) {
-        //getting values
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $name = $_POST['name'];
-        $phone = $_POST['phone'];
- 
-        //creating db operation object
-        $db = new DbOperation();
- 
-        //adding user to database
-        $result = $db->createUser($username, $password, $email, $name, $phone);
- 
-        //making the response accordingly
-        if ($result == USER_CREATED) {
-            $response['error'] = false;
-            $response['message'] = 'User created successfully';
-        } elseif ($result == USER_ALREADY_EXIST) {
-            $response['error'] = true;
-            $response['message'] = 'User already exist';
-        } elseif ($result == USER_NOT_CREATED) {
-            $response['error'] = true;
-            $response['message'] = 'Some error occurred';
-        }
-    } else {
-        $response['error'] = true;
-        $response['message'] = 'Required parameters are missing';
-    }
-} else {
-    $response['error'] = true;
-    $response['message'] = 'Invalid request';
-}
- 
-//function to validate the required parameter in request
-function verifyRequiredParams($required_fields)
-{
- 
-    //Getting the request parameters
-    $request_params = $_REQUEST;
- 
-    //Looping through all the parameters
-    foreach ($required_fields as $field) {
-        //if any requred parameter is missing
-        if (!isset($request_params[$field]) || strlen(trim($request_params[$field])) <= 0) {
- 
-            //returning true;
-            return true;
-        }
-    }
-    return false;
-}
- 
-echo json_encode($response);
-?>
+<html>    
+    <head>
+        <title>Weaves</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Weaves</a>
+            </div>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Page 1-1</a></li>
+                  <li><a href="#">Page 1-2</a></li>
+                  <li><a href="#">Page 1-3</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Page 2</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+            </ul>
+          </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <form class="form-horizontal" action="user_register.php" method="POST">
+                      <fieldset>
+                        <div id="legend">
+                          <legend class="">Sign Up</legend>
+                        </div>
+                        <div class="control-group">
+                          <!-- Username -->
+                          <label class="control-label"  for="username">Username</label>
+                          <div class="controls">
+                            <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <!-- Password-->
+                          <label class="control-label" for="password">Password</label>
+                          <div class="controls">
+                            <input type="text" id="password" name="password" placeholder="" class="input-xlarge">
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <!-- Username -->
+                          <label class="control-label"  for="email">Email</label>
+                          <div class="controls">
+                            <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <!-- Username -->
+                          <label class="control-label"  for="name">Name</label>
+                          <div class="controls">
+                            <input type="password" id="name" name="name" placeholder="" class="input-xlarge">
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <!-- Username -->
+                          <label class="control-label"  for="phone">Phone</label>
+                          <div class="controls">
+                            <input type="password" id="phone" name="phone" placeholder="" class="input-xlarge">
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <!-- Button -->
+                          <div class="controls">
+                            <button type="submit" class="btn btn-success" id="btnlog">Sign Up</button>
+                          </div>
+                        </div>
+                          <a href="login.php">Already have an account?</a>
+                      </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
